@@ -1,0 +1,61 @@
+{
+  "name": "n8n-nodes-thronfrei",
+  "version": "0.1.0",
+  "description": "n8n community node for Thronfrei – react to bathroom events and trigger check-in/out and emergencies.",
+  "keywords": [
+    "n8n-community-node-package",
+    "thronfrei",
+    "smart-home"
+  ],
+  "license": "MIT",
+  "homepage": "https://thronfrei.de/api/",
+  "author": {
+    "name": "P&D Abend Media",
+    "email": "info@pandee.de"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pandee-de/n8n-nodes-thronfrei.git"
+  },
+  "bugs": {
+    "url": "https://github.com/pandee-de/n8n-nodes-thronfrei/issues"
+  },
+  "engines": {
+    "node": ">=18.10"
+  },
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc && gulp build:icons",
+    "dev": "tsc --watch",
+    "format": "prettier nodes credentials --write",
+    "lint": "eslint nodes credentials package.json",
+    "lintfix": "eslint nodes credentials package.json --fix",
+    "prepublishOnly": "npm run build && npm run lint"
+  },
+  "files": [
+    "dist"
+  ],
+  "n8n": {
+    "n8nNodesApiVersion": 1,
+    "credentials": [
+      "dist/credentials/ThronfreiApi.credentials.js"
+    ],
+    "nodes": [
+      "dist/nodes/Thronfrei/Thronfrei.node.js",
+      "dist/nodes/Thronfrei/ThronfreiTrigger.node.js"
+    ]
+  },
+  "devDependencies": {
+    "@types/node": "^18.19.130",
+    "@typescript-eslint/parser": "^7.15.0",
+    "eslint": "^8.57.0",
+    "eslint-plugin-n8n-nodes-base": "^1.16.0",
+    "gulp": "^4.0.2",
+    "n8n-workflow": "*",
+    "prettier": "^3.3.2",
+    "typescript": "^5.5.3"
+  },
+  "peerDependencies": {
+    "n8n-workflow": "*"
+  }
+}
